@@ -24,7 +24,7 @@ const CREDENTIALS = readJson(`${__dirname}/credentials.json`); //get the API fro
 // connect to the database
 
 var pg = require('pg');
-var conString = "postgres://postgres:qjddurwjdvh@localhost:5432/socialdb";
+var conString = "postgres://postgres:ywY0hGCJJbbkm7_t66bWzh6A4E@lec2-54-235-132-192.compute-1.amazonaws.com:5432/de82f9ag1o36jr";
 
 var schedule = require('node-schedule');
 
