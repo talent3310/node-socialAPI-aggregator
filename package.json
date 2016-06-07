@@ -11,7 +11,17 @@
   },
   "dependencies": {
     "ejs": "2.4.1",
-    "express": "4.13.3"
+    "express": "4.13.3",
+    "fb": "latest",
+    "node-pinterest": "latest",
+    "node-schedule": "latest",
+    "r-json": "latest",
+    "tumblr": "latest",
+    "twitter": "latest",
+    "youtube-api": "latest",
+    "async-kit": "latest",
+    "pg": "latest",
+    "instagram-node": "latest"
   },
   "repository": {
     "type": "git",
