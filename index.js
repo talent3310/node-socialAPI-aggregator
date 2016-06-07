@@ -66,87 +66,87 @@ cal.run = function() {
             });
 
         },
-        function(callback) { //pinterest
-            var PDK = require('node-pinterest');
-            var pinterest = PDK.init(CREDENTIALS.pinterest.token);
-            pinterest.api('me/pins').then(function(result) {
-                var array = result.data;
-                var len = result.data.length;
+        // function(callback) { //pinterest
+        //     var PDK = require('node-pinterest');
+        //     var pinterest = PDK.init(CREDENTIALS.pinterest.token);
+        //     pinterest.api('me/pins').then(function(result) {
+        //         var array = result.data;
+        //         var len = result.data.length;
 
-                for (var i = 0; i < len; i++) {
-                    cal.pushToArray(array[i].id, array[i].note, array[i].note, "2016/01/01", array[i].link);
+        //         for (var i = 0; i < len; i++) {
+        //             cal.pushToArray(array[i].id, array[i].note, array[i].note, "2016/01/01", array[i].link);
 
-                }
-                callback();
-            });
+        //         }
+        //         callback();
+        //     });
 
-        },
-        function(callback) { //twitter
-            var Twitter = require('twitter');
-            var twitter_client = new Twitter({
-                consumer_key: CREDENTIALS.twitter.consumer_key,
-                consumer_secret: CREDENTIALS.twitter.consumer_secret,
-                access_token_key: CREDENTIALS.twitter.access_token,
-                access_token_secret: CREDENTIALS.twitter.access_token_secret
-            });
+        // },
+        // function(callback) { //twitter
+        //     var Twitter = require('twitter');
+        //     var twitter_client = new Twitter({
+        //         consumer_key: CREDENTIALS.twitter.consumer_key,
+        //         consumer_secret: CREDENTIALS.twitter.consumer_secret,
+        //         access_token_key: CREDENTIALS.twitter.access_token,
+        //         access_token_secret: CREDENTIALS.twitter.access_token_secret
+        //     });
 
-            var params = { screen_name: 'nodejs' };
-            twitter_client.get('statuses/user_timeline', params, function(error, tweets, response) {
-                if (!error) {
-                    // console.log("tweets", tweets[0]); // works well
-                    //sourceID, title, description, sourceCreatedUTC, sourceUrl
-                    cal.pushToArray(tweets[0].id, tweets[0].text, tweets[0].text, tweets[0].created_at, '');
-                }
-                callback();
-            });
+        //     var params = { screen_name: 'nodejs' };
+        //     twitter_client.get('statuses/user_timeline', params, function(error, tweets, response) {
+        //         if (!error) {
+        //             // console.log("tweets", tweets[0]); // works well
+        //             //sourceID, title, description, sourceCreatedUTC, sourceUrl
+        //             cal.pushToArray(tweets[0].id, tweets[0].text, tweets[0].text, tweets[0].created_at, '');
+        //         }
+        //         callback();
+        //     });
 
-        },
-        function(callback) { //twitter
-            var Twitter = require('twitter');
-            var twitter_client = new Twitter({
-                consumer_key: CREDENTIALS.twitter.consumer_key,
-                consumer_secret: CREDENTIALS.twitter.consumer_secret,
-                access_token_key: CREDENTIALS.twitter.access_token,
-                access_token_secret: CREDENTIALS.twitter.access_token_secret
-            });
+        // },
+        // function(callback) { //twitter
+        //     var Twitter = require('twitter');
+        //     var twitter_client = new Twitter({
+        //         consumer_key: CREDENTIALS.twitter.consumer_key,
+        //         consumer_secret: CREDENTIALS.twitter.consumer_secret,
+        //         access_token_key: CREDENTIALS.twitter.access_token,
+        //         access_token_secret: CREDENTIALS.twitter.access_token_secret
+        //     });
 
-            var params = { screen_name: 'nodejs' };
-            twitter_client.get('statuses/user_timeline', params, function(error, tweets, response) {
-                if (!error) {
-                    // console.log("tweets", tweets[0]); // works well
-                    //sourceID, title, description, sourceCreatedUTC, sourceUrl
-                    cal.pushToArray(tweets[0].id, tweets[0].text, tweets[0].text, tweets[0].created_at, '');
-                }
-                callback();
-            });
+        //     var params = { screen_name: 'nodejs' };
+        //     twitter_client.get('statuses/user_timeline', params, function(error, tweets, response) {
+        //         if (!error) {
+        //             // console.log("tweets", tweets[0]); // works well
+        //             //sourceID, title, description, sourceCreatedUTC, sourceUrl
+        //             cal.pushToArray(tweets[0].id, tweets[0].text, tweets[0].text, tweets[0].created_at, '');
+        //         }
+        //         callback();
+        //     });
 
-        },
-        function(callback) { //tumblr
-            var tumblr = require('tumblr');
-            var oauth = {
-                consumer_key: CREDENTIALS.tumblr.consumer_key,
-                consumer_secret: CREDENTIALS.tumblr.consumer_secret,
-                token: CREDENTIALS.tumblr.token,
-                token_secret: CREDENTIALS.tumblr.token_secret
-            };
+        // },
+        // function(callback) { //tumblr
+        //     var tumblr = require('tumblr');
+        //     var oauth = {
+        //         consumer_key: CREDENTIALS.tumblr.consumer_key,
+        //         consumer_secret: CREDENTIALS.tumblr.consumer_secret,
+        //         token: CREDENTIALS.tumblr.token,
+        //         token_secret: CREDENTIALS.tumblr.token_secret
+        //     };
 
-            var blog = new tumblr.Blog('david.tumblr.com', oauth);
+        //     var blog = new tumblr.Blog('david.tumblr.com', oauth);
 
-            blog.text({ limit: 3 }, function(error, response) {
-                cal.pushToArray(response.posts[0].id, response.posts[0].title, response.posts[0].blog_name, response.posts[0].date, response.posts[0].post_url);
-                callback();
-            });
+        //     blog.text({ limit: 3 }, function(error, response) {
+        //         cal.pushToArray(response.posts[0].id, response.posts[0].title, response.posts[0].blog_name, response.posts[0].date, response.posts[0].post_url);
+        //         callback();
+        //     });
 
-        },
-        function(callback) { //facebook
-            var FB = require('fb');
-            FB.api('me/feed', { access_token: CREDENTIALS.facebook.access_token }, function(res) {
-                // console.log("facebook Result is ", res);
+        // },
+        // function(callback) { //facebook
+        //     var FB = require('fb');
+        //     FB.api('me/feed', { access_token: CREDENTIALS.facebook.access_token }, function(res) {
+        //         // console.log("facebook Result is ", res);
 
-                callback();
-            });
+        //         callback();
+        //     });
 
-        },
+        // },
         function(callback) {
             var pg_client = new pg.Client(conString);
             pg_client.connect(function(err) {
