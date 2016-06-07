@@ -30,7 +30,7 @@ var schedule = require('node-schedule');
 
 async = require('async-kit');
 
-var j = schedule.scheduleJob('* * /1 * * *', function() {
+var j = schedule.scheduleJob('* * /1 * * *', function() {//every day upload the social posted data
     console.log('');
     cal.run();
 });
