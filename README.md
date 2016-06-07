@@ -1,5 +1,5 @@
 # node-socialAPI-aggregator
-## Running Locally
-npm install
+To run this project<br>
+npm install<br>
 node index.js
 
